@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%= title %></title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+	</head>
+	<body>
+
+		<h1><%= title %></h1>
+
+		Throw a potential sexual innuendo at the TWSS web API, and we'll let you know if she said that.
+
+		<p><b>Sentences</b></p>
+
+		<p>/sentence/<i>sentence</i></p>
+
+		<p>The <i>sentence</i> parameter will be taken inside the moist inner workings of the API and treated as a whole unit.  The API will spit a JSON response back at you in the following format:</p>
+
+		<pre>
+	{	'error' : <i>null</i> or <i>string</i>,
+		'sheSaidThat' : <i>boolean</i>,
+		'probability' : <i>number</i>
+	}
+		</pre>
+
+		<p>The <i>sheSaidThat</i> property will be <i>true</i> if these words dribbled out of her mouth, or <i>false</i> otherwise.</p>
+
+		<p>The <i>probability</i> property thrusts a greater degree of accuracy in your face.  This response will be a number between 0 and 1.  TWSS jokes tend to fall limp and flaccid when the <i>probability</i> drops to .7 or below.</p>
+
+		<p><b>Paragraphs</b></p>
+
+		<p>/paragraph/<i>paragraph</i></p>
+
+		<p>The <i>paragraph</i> parameter will be divided into sentences, each one receiving special loving attention and a gentle probing of its own.  The API will spurt a JSON response in your general direction following this format:</p>
+
+		<pre>
+	{	'error' : <i>null</i> or <i>string</i>,
+		'sentences' : [
+			{	'sentence' : <i>string</i>,
+				'probability' : <i>number</i>
+			},
+			...
+		]
+	}
+		</pre>
+
+		<p>The <i>sentences</i> array will contain only those sentences from your paragraph which had a &gt;.5 <i>probability</i> of having been said by her.  An empty array means that she didn't say any of those things.  Each element in the array will have a <i>sentence</i> property (the text of the sentence) and a <i>probability</i> property (as described above.)</p>
+
+		<p><b>Limits</b></p>
+
+		<p><i>Sentences</i> can be up to 250 characters in length.</p>
+
+		<p><i>Paragraphs</i> can be up to 5000 characters in length.</p>
+
+		<p>You can make 30 requests per minute. Responses will be delayed as you approach this limit.</p>
+
+	</body>
+</html>
